@@ -1,4 +1,6 @@
-# jCourse：SJTU 选课社区
+# THUCourse：THU 选课社区
+
+基于jCourse：SJTU 选课社区原代码开发
 
 ## 开始使用
 
@@ -22,13 +24,10 @@ $ yarn dev
 $ yarn build
 ```
 
-## 后端服务
-
-请见： https://github.com/dujiajun/jcourse_api
-
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
