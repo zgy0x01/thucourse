@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: "standalone",
-  basePath: process.env.BASE_PATH || undefined,
+  basePath: "/thucourse",
   reactStrictMode: true,
-  async redirects() {
+  assetPrefix: "/thucourse",
+  async redirects () {
     return [
       {
         source: "/",
@@ -12,7 +13,7 @@ const nextConfig = {
       }
     ];
   },
-  async rewrites() {
+  async rewrites () {
     if (process.env.REMOTE_URL) {
       return [
         {

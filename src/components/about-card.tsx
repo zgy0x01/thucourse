@@ -39,10 +39,12 @@ const AboutCard = () => {
       </Paragraph>
       <Title level={4}>致谢</Title>
       <Paragraph>
-        THU选课社区基于
+        <Link href={"https://github.com/zgy0x01/thucourse"}>THU选课社区</Link>
+        基于
         <Link href={"https://github.com/SJTU-jCourse/jcourse"}>
-          SJTU选课社区源代码
+          SJTU选课社区
         </Link>
+        源代码
       </Paragraph>
       <Title level={4}>友情链接</Title>
       <Paragraph>

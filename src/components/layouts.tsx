@@ -15,12 +15,12 @@ export const BasicLayout = ({ children }: React.PropsWithChildren<{}>) => {
 
   const { commonInfo, error } = useCommonInfo();
   const router = useRouter();
-  useEffect(() => {
+  /* useEffect(() => {
     if (error?.response?.status == 403 && mounted) {
       const pathname = window.location.pathname;
       router.replace({ pathname: "/login", query: { next: pathname } });
     }
-  }, [error]);
+  }, [error]);*/
 
   useEffect(() => {
     setMounted(true);

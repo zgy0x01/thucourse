@@ -40,7 +40,6 @@ const ReviewItem = ({
             id={`review-${review.id}`}
             key={review.id}
             className={"review-item"}
-            actions={[<div key="id">{"#" + review.id}</div>]}
           >
             {contextHolder}
             {commonInfo?.user.is_staff && revisionModalOpen && (
@@ -110,7 +109,7 @@ const ReviewItem = ({
                   </Tooltip>
                 ) : (
                   <Typography.Text type="secondary">
-                    发表于 {review.modified_at}
+                    #{review.id} · {review.modified_at}
                   </Typography.Text>
                 )}
                 {(commonInfo?.my_reviews.has(review.id) ||
