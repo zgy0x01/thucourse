@@ -1,6 +1,6 @@
 # THUCourse：THU 选课社区
 
-基于jCourse：SJTU 选课社区原代码开发
+基于jCourse：SJTU 选课社区源代码开发
 
 ## 开始使用
 
