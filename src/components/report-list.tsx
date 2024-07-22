@@ -1,6 +1,5 @@
-import { Alert, List } from "antd";
-
 import { Pagination, Report } from "@/lib/models";
+import { Alert, Button, List, Space, Tooltip, Typography, message } from "antd";
 
 const ReportList = ({
   loading,
@@ -35,16 +34,12 @@ const ReportList = ({
       }
       dataSource={reports}
       renderItem={(item) => (
-        <List.Item
-          key={item.id}
-          actions={[
-            <div key="time">{item.created_at}</div>,
-            <div key="id">{"#" + item.id}</div>,
-          ]}
-          className="comment"
-        >
+        <List.Item key={item.id} className="comment">
           <p>{item.comment}</p>
           {item.reply && <Alert message={item.reply} type="info" />}
+          <Typography.Text type="secondary">
+            #{item.id} · {item.created_at}
+          </Typography.Text>
         </List.Item>
       )}
     />
