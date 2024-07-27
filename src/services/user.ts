@@ -101,7 +101,6 @@ export async function resetPassword(
 
 export function useUser() {
   const { data, error } = useSWR<User>("/api/me/", fetcher);
-  if (data) data.account = localStorage.getItem("account");
   return {
     user: data,
     loading: !error && !data,

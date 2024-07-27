@@ -11,9 +11,9 @@ import "@/styles/global.css";
 function MyApp({ Component, pageProps, router }: AppProps) {
   const [mounted, setMounted] = useState<boolean>(false);
 
-  const isDark = useMediaQuery({
+  const isDark = false; /* useMediaQuery({
     query: "(prefers-color-scheme: dark)",
-  });
+  });*/
 
   useEffect(() => {
     setMounted(true);

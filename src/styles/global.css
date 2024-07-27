@@ -49,14 +49,7 @@ body {
 .header {
   background: white !important;
 }
-@media (prefers-color-scheme: dark) {
-  .title {
-    color: white !important;
-  }
-  .header {
-    background: #141414 !important;
-  }
-}
+
 .navbar {
   align-content: center;
   margin-left: auto;
