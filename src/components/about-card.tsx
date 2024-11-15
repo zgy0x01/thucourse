@@ -46,6 +46,12 @@ const AboutCard = () => {
         </Link>
         源代码
       </Paragraph>
+      <Title level={4}>快捷访问</Title>
+      <Paragraph>
+        THU选课社区已内置在
+        <Link href={"https://yourschool.cc"}>你校app</Link>
+        内，可以在app内直接点击图标快捷访问
+      </Paragraph>
       <Title level={4}>友情链接</Title>
       <Paragraph>
         <Link href={"https://yourschool.cc/thubook"}>THU手册</Link>

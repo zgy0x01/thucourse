@@ -1,4 +1,4 @@
-import { Card, Input, message } from "antd";
+import { Card, Empty, Input, message } from "antd";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useRef } from "react";
@@ -8,8 +8,10 @@ import PageHeader from "@/components/page-header";
 import Config from "@/config/config";
 import { Pagination } from "@/lib/models";
 import { useSearchCourse } from "@/services/course";
+import { Checkbox } from "antd";
 
 const { Search } = Input;
+var only_has = false;
 
 const SearchPage = () => {
   const router = useRouter();
@@ -22,7 +24,11 @@ const SearchPage = () => {
   };
   const inputRef = useRef<any>(null);
 
-  const { courses, loading, mutate } = useSearchCourse(q as string, pagination);
+  const { courses, loading, mutate } = useSearchCourse(
+    q as string,
+    pagination,
+    only_has ? 1 : 0
+  );
 
   useEffect(() => {
     inputRef.current?.focus({ cursor: "end" });
@@ -35,11 +41,17 @@ const SearchPage = () => {
       message.info("请输入搜索内容");
       return;
     }
-    router.push({ query: { q: value.trim() } });
+    router.push({ query: { q: value.trim(), onlyhasreview: only_has } });
+  };
+
+  const setOnlyHasReviews = (value: boolean) => {
+    only_has = value;
   };
 
   const onPageChange = (page: number, pageSize: number) => {
-    router.push({ query: { q, page, size: pageSize } });
+    router.push({
+      query: { q, page, size: pageSize, onlyhasreview: only_has },
+    });
   };
 
   return (
@@ -51,11 +63,19 @@ const SearchPage = () => {
       <Search
         size="large"
         defaultValue={show_q}
-        placeholder="搜索课程名/课号/教师姓名/教师姓名拼音"
+        placeholder="搜索课程名/教师姓名"
         onSearch={onSearch}
         ref={inputRef}
         className="search-input"
       />
+      <Checkbox
+        defaultChecked={false}
+        onChange={(e) => setOnlyHasReviews(e.target.checked)}
+      >
+        仅显示有点评的课程
+      </Checkbox>
+      <br />
+      <br />
       <Card title={`共有${courses ? courses.count : 0}门课`}>
         <CourseList
           loading={loading}

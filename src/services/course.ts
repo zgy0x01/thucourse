@@ -62,10 +62,10 @@ export async function searchCourse(
   return resp.data;
 }
 
-export function useSearchCourse(keyword: string, pagination: Pagination) {
+export function useSearchCourse(keyword: string, pagination: Pagination,only:number) {
   const { data, error, mutate } = useSWR<PaginationApiResult<CourseListItem>>(
     keyword
-      ? `/api/search/?q=${keyword}&page=${pagination.page}&size=${pagination.pageSize}`
+      ? `/api/search/?q=${keyword}&page=${pagination.page}&size=${pagination.pageSize}&only=${only}`
       : null,
     fetcher
   );
